@@ -15,7 +15,7 @@ public class DBconfiguration {
     private String username;
     private String password;
 
-    //método
+    //método para dev
     @Profile("dev")
     @Bean
     public String devDataDaseConnection(){
@@ -24,6 +24,7 @@ public class DBconfiguration {
         System.out.println(url);
         return "teste de conexão do H2";
     }
+    //método para produção
     @Profile("prod")
     @Bean
     public String prodDataDaseConnection(){
