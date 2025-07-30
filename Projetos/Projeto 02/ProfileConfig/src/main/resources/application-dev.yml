@@ -1,0 +1,11 @@
+
+app:
+  message: This is the property file to the ${spring.application.name} specific to dev environment
+
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost:9092/default
+    username: hiarita
+    password: hiarita
