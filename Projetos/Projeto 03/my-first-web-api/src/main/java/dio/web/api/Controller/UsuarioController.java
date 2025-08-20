@@ -9,33 +9,34 @@ import java.util.List;
 
 //da um direcionamento para a aplicação
 @RestController
+@RequestMapping("/user")
 public class UsuarioController {
 
     @Autowired
     private UsuarioRepository repository;
 
-    @GetMapping("/users")
+    @GetMapping
     public List<Usuario> getUser(){
         return repository.findAll();
     }
 
-    @GetMapping("/user/{username}")
+    @GetMapping("/{username}")
     public Usuario getOneUser(@PathVariable("username") String username){
         return repository.findByusername(username);
     }
 
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable("id") Integer id){
         repository.remove(id);
     }
 
-    @PostMapping("/user/{usuario}")
+    @PostMapping("/{usuario}")
     public void postUser(@PathVariable("usuario") Usuario usuario){
         repository.save(usuario);
     }
 
-    @PostMapping("/users/save")
-    public void saveUser(@RequestBody Usuario usuario){ /// o RequestBody utilizado aqui 
+    @PostMapping("/save")
+    public void saveUser(@RequestBody Usuario usuario){ /// o RequestBody utilizado aqui Serve para receber um objeto JSON (ou XML) no corpo da requisição
         repository.save(usuario);
     }
 }
