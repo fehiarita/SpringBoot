@@ -30,13 +30,14 @@ public class UsuarioController {
         repository.remove(id);
     }
 
-    @PostMapping("/{usuario}")
-    public void postUser(@PathVariable("usuario") Usuario usuario){
+
+    @PostMapping("/save")
+    public void postUser(@RequestBody Usuario usuario){ /// o RequestBody utilizado aqui Serve para receber um objeto JSON (ou XML) no corpo da requisição
         repository.save(usuario);
     }
 
-    @PostMapping("/save")
-    public void saveUser(@RequestBody Usuario usuario){ /// o RequestBody utilizado aqui Serve para receber um objeto JSON (ou XML) no corpo da requisição
+    @PutMapping
+    public void putUser(@RequestBody Usuario usuario){
         repository.save(usuario);
     }
 }
